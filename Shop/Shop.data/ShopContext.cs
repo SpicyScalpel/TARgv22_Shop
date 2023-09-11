@@ -1,7 +1,15 @@
-﻿namespace Shop.data
-{
-    public class Class1
-    {
+﻿using Microsoft.EntityFrameworkCore;
+using ShopCore.Domain;
 
+namespace Shop.data
+{
+    public class ShopContext:DbContext
+    {
+        public ShopContext
+            (
+                DbContextOptions<ShopContext> options
+            ) : base( options ) { }
+
+        public DbSet<Spaceship> Shapeship { get; set; }
     }
 }
