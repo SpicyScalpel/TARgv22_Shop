@@ -1,31 +1,37 @@
-﻿
+﻿@model IEnumerable<Shop.Models.Spaceship.SpaceShipsIndexViewModel>
 
 
 <div class="h1">
     Spaceships
 </div>
+@{
+    int rowNumber = 1;
+}
 
 
 <form method="post">
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Nr</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Passengers</th>
-                <th>Engine Power</th>
+                <th scope="col">Nr</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Passengers</th>
+                <th scope="col">Engine Power</th>
             </tr>
         </thead>
         <tbody>
-
+            @foreach (var spaceship in Model)
+            {
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@rowNumber</td>
+                <td>@spaceship.Name</td>
+                <td>@spaceship.Type</td>
+                <td>@spaceship.Passengers</td>
+                <td>@spaceship.EnginePower</td>
             </tr>
+                rowNumber += 1;
+            }
 
         </tbody>
     </table>
