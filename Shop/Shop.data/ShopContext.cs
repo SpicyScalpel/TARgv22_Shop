@@ -10,6 +10,6 @@ namespace Shop.data
                 DbContextOptions<ShopContext> options
             ) : base( options ) { }
 
-        public DbSet<Spaceship> Shapeship { get; set; }
+        public DbSet<Spaceship> Spaceship { get; set; }
     }
 }
