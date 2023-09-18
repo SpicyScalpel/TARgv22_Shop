@@ -36,6 +36,8 @@
                 <td>@spaceship.EnginePower</td>
                 <td>
                     <a asp-action="details" asp-controller="spaceships" asp-route-id="@spaceship.Id" class="btn btn-info">Details</a>
+                    <a asp-action="update" asp-controller="spaceships" asp-route-id="@spaceship.Id" class="btn btn-outline-primary">Update</a>
+                    <a asp-action="delete" asp-controller="spaceships" asp-route-id="@spaceship.Id" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
                 rowNumber += 1;
