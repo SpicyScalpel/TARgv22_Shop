@@ -60,7 +60,7 @@ namespace Shop.data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Spaceship");
+                    b.ToTable("Spaceships");
                 });
 #pragma warning restore 612, 618
         }

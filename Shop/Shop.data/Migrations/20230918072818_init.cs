@@ -10,7 +10,7 @@ namespace Shop.data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Shapeship",
+                name: "Spaceships",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -19,21 +19,21 @@ namespace Shop.data.Migrations
                     Passengers = table.Column<int>(type: "int", nullable: false),
                     EnginePower = table.Column<int>(type: "int", nullable: false),
                     Crew = table.Column<int>(type: "int", nullable: false),
-                    Company = table.Column<int>(type: "int", nullable: false),
+                    Company = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CargoWeight = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Shapeship", x => x.Id);
+                    table.PrimaryKey("PK_Spaceships", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Shapeship");
+                name: "Spaceships");
         }
     }
 }
