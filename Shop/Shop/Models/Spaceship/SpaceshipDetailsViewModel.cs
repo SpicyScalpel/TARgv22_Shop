@@ -1,8 +1,6 @@
-﻿
-
-namespace ShopCore.Domain
+﻿namespace Shop.Models.Spaceship
 {
-    public class Spaceship
+    public class SpaceshipDetailsViewModel
     {
         public Guid? Id { get; set; }
 
@@ -22,6 +20,6 @@ namespace ShopCore.Domain
 
         //only in database
         public DateTime CreatedAt { get; set; }
-        public DateTime ModifiedAt { get; set;}
+        public DateTime ModifiedAt { get; set; }
     }
 }

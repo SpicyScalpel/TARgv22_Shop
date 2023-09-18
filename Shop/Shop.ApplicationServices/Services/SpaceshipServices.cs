@@ -1,4 +1,5 @@
-﻿using Shop.data;
+﻿using Microsoft.EntityFrameworkCore;
+using Shop.data;
 using ShopCore.Domain;
 using ShopCore.Dto;
 using ShopCore.ServiceInterface;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Shop.ApplicationServices.Services
 {
-    internal class SpaceshipServices : ISpaceshipServices
+    public class SpaceshipServices : ISpaceshipServices
     {
         private readonly ShopContext _context;
 
@@ -38,12 +39,18 @@ namespace Shop.ApplicationServices.Services
             spaceship.CreatedAt = DateTime.Now;
             spaceship.ModifiedAt = DateTime.Now;
 
-            await _context.Spaceship.AddAsync( spaceship );
+            await _context.Spaceships.AddAsync( spaceship );
             await _context.SaveChangesAsync();
 
             return spaceship;
         }
 
+        public async Task<Spaceship> GetAsync(Guid id)
+        {
+            var result = await _context.Spaceships
+                .FirstOrDefaultAsync(x => x.Id == id);
+            return result;
+        }
 
 
     }

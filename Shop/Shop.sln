@@ -5,9 +5,11 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop", "Shop\Shop.csproj", "{AB314784-CD07-4942-ACA8-2CCA1F5A78F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.data", "Shop.data\Shop.data.csproj", "{3EDE6DB9-6A45-4670-90B9-D3CE9E1DC4A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.data", "Shop.data\Shop.data.csproj", "{3EDE6DB9-6A45-4670-90B9-D3CE9E1DC4A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopCore", "ShopCore\ShopCore.csproj", "{2BFB8060-F57A-4CDB-B7DD-C298C8AA8ACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopCore", "ShopCore\ShopCore.csproj", "{2BFB8060-F57A-4CDB-B7DD-C298C8AA8ACD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.ApplicationServices", "Shop.ApplicationServices\Shop.ApplicationServices.csproj", "{8A78A0F5-7D7F-4969-AA2A-681171E2F4A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2BFB8060-F57A-4CDB-B7DD-C298C8AA8ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BFB8060-F57A-4CDB-B7DD-C298C8AA8ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BFB8060-F57A-4CDB-B7DD-C298C8AA8ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A78A0F5-7D7F-4969-AA2A-681171E2F4A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A78A0F5-7D7F-4969-AA2A-681171E2F4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A78A0F5-7D7F-4969-AA2A-681171E2F4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A78A0F5-7D7F-4969-AA2A-681171E2F4A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
