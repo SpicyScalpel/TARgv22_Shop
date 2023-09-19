@@ -148,7 +148,6 @@ namespace Shop.Controllers
 
             return RedirectToAction(nameof(Index), vm);
         }
-
         [HttpGet]
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -161,16 +160,31 @@ namespace Shop.Controllers
 
             var vm = new SpaceshipDeleteViewModel();
 
-            Id = vm.Id,
-            Name = vm.Name,
-            Type = vm.Type,
-            Passengers = vm.Passengers,
-            EnginePower = vm.EnginePower,
-            Crew = vm.Crew,
-            Company = vm.Company,
-            CargoWeight = vm.CargoWeight,
-            CreatedAt = vm.CreatedAt,
-            ModifiedAt = vm.ModifiedAt,
-            
+            vm.Id = spaceship.Id;
+            vm.Name = spaceship.Name;
+            vm.Type = spaceship.Type;
+            vm.Passengers = spaceship.Passengers;
+            vm.EnginePower = spaceship.EnginePower;
+            vm.Crew = spaceship.Crew;
+            vm.Company = spaceship.Company;
+            vm.CargoWeight = spaceship.CargoWeight;
+            vm.CreatedAt = spaceship.CreatedAt;
+            vm.ModifiedAt = spaceship.ModifiedAt;
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmation(Guid id)
+        {
+            var spaceshipId = await _spaceshipServices.Delete(id);
+
+            if (spaceshipId == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
