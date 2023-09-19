@@ -39,6 +39,8 @@ namespace Shop.ApplicationServices.Services
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         image.CopyTo(fileStream);
+
+
                     }
 
                 }
