@@ -31,7 +31,7 @@ namespace ShopCore.Dto
 
         public List<IFormFile> Files { get; set; }
 
-        public IEnumerable<FileToApiDto> FileToApiDtos { get; set; }
+        public IEnumerable<FileToApiDto> Image { get; set; }
             = new List<FileToApiDto>();
             }
 }

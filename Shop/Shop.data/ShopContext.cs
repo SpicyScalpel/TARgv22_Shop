@@ -3,13 +3,14 @@ using ShopCore.Domain;
 
 namespace Shop.data
 {
-    public class ShopContext:DbContext
+    public class ShopContext : DbContext
     {
         public ShopContext
             (
                 DbContextOptions<ShopContext> options
-            ) : base( options ) { }
+            ) : base(options) { }
 
         public DbSet<Spaceship> Spaceships { get; set; }
+        public DbSet<FileToApi> FileToApis { get; set; }
     }
 }
