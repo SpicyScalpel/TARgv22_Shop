@@ -2,6 +2,7 @@ using Shop.data;
 using Microsoft.EntityFrameworkCore;
 using ShopCore.ServiceInterface;
 using Shop.ApplicationServices.Services;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddDbContext<ShopContext>(options =>
 
 builder.Services.AddScoped<ISpaceshipServices, SpaceshipServices>();
 builder.Services.AddScoped<IFileServices, FilesServices>();
+builder.Services.AddScoped<IRealEstateServices, RealEstateServices>();
 
 
 var app = builder.Build();
@@ -28,6 +30,13 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider
+    (Path.Combine(builder.Environment.ContentRootPath, "multipleFileUpload")),
+    RequestPath = "/multipleFileUpload"
+});
 
 app.UseRouting();
 
