@@ -37,6 +37,7 @@ namespace Shop.Controllers
                     RoomCount = x.RoomCount,
                     Floor = x.Floor,
                     BuildingType = x.BuildingType,
+                    BuiltInYear = x.BuiltInYear,
                 });
             return View(result);
         }
@@ -60,7 +61,15 @@ namespace Shop.Controllers
                 RoomCount = vm.RoomCount,
                 Floor = vm.Floor,
                 BuildingType = vm.BuildingType,
-                BuiltInYear = vm.BuiltInYear
+                BuiltInYear = vm.BuiltInYear,
+                Files = vm.Files,
+                Images = vm.Image.Select(x => new FileToDatabaseDto
+                {
+                    Id= x.ImageId,
+                    ImageData = x.ImageData,
+                    ImageTitle = x.ImageTitle,
+                    RealEstateId = x.RealEstateId,
+                }).ToArray()
 
             };
             var result = await _realestateServices.Create(dto);
@@ -83,6 +92,17 @@ namespace Shop.Controllers
                 return NotFound();
             }
 
+            var photos = await _context.FileToDatabases
+                .Where(x => x.RealEstateId == id)
+                .Select(y => new ImageToDatabaseViewModel
+                {
+                    RealEstateId = y.Id,
+                    ImageId = y.Id,
+                    ImageData = y.ImageData,    
+                    ImageTitle = y.ImageTitle,  
+                    Image = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(y.ImageData))
+                }).ToArrayAsync();
+
             var vm = new RealEstateDetailsViewModel();
 
             vm.Id = realestate.Id;
@@ -94,6 +114,8 @@ namespace Shop.Controllers
             vm.BuiltInYear = realestate.BuiltInYear;
             vm.CreatedAt = realestate.CreatedAt;
             vm.UpdatedAt = realestate.UpdatedAt;
+            vm.Image.AddRange(photos);
+
 
             return View(vm);
         }
