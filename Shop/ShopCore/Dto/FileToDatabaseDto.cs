@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopCore.Domain
+namespace ShopCore.Dto
 {
-    public class FilesToDatabase
+    public class FileToDatabaseDto
     {
         public Guid Id { get; set; }
         public string ImageTitle { get; set; }
