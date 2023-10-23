@@ -15,5 +15,6 @@ namespace ShopCore.ServiceInterface
         Task<FileToApi> RemoveImageFromApi(FileToApiDto dto);
 
         void UploadFilesToDatabase(RealEstateDto dto, RealEstate domain);
+        Task<FileToDatabase> RemoveImageFromDatabase(FileToDatabaseDto dto);
     }
 }
